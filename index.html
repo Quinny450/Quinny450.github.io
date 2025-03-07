@@ -4,11 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Blog</title>
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav {
+            margin: 20px 0;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        article {
+            background: #ffffff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background: #35424a;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <!-- Header content will be included here -->
+        <div class="logo">
+            <h1>My Personal Blog</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
         <h1>Welcome to My Personal Blog</h1>
@@ -19,8 +91,62 @@
         </section>
     </main>
     <footer>
-        <!-- Footer content will be included here -->
+        <div class="footer-content">
+            <p>&copy; 2023 Your Blog Name. All rights reserved.</p>
+            <ul class="social-media">
+                <li><a href="https://twitter.com/yourprofile" target="_blank">Twitter</a></li>
+                <li><a href="https://facebook.com/yourprofile" target="_blank">Facebook</a></li>
+                <li><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </footer>
-    <script src="../assets/js/scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Form validation for contact form
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    if (!name || !email) {
+                        e.preventDefault();
+                        alert('Please fill in all fields.');
+                    }
+                });
+            }
+
+            // Dynamic content loading for recent posts
+            const recentPostsContainer = document.getElementById('recent-posts');
+            if (recentPostsContainer) {
+                fetch('/api/recent-posts')
+                    .then(response => response.json())
+                    .then(posts => {
+                        posts.forEach(post => {
+                            const postElement = document.createElement('div');
+                            postElement.classList.add('post');
+                            postElement.innerHTML = `<h2>${post.title}</h2><p>${post.excerpt}</p>`;
+                            recentPostsContainer.appendChild(postElement);
+                        });
+                    })
+                    .catch(error => console.error('Error loading recent posts:', error));
+            }
+        });
+    </script>
 </body>
 </html>
