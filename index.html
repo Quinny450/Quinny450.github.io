@@ -1,162 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Blog</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #181818;
-            color: #f5f5f5;
-        }
-
-        header {
-            background: #282828;
-            color: #ffffff;
-            padding: 20px 0;
-            text-align: center;
-            border-bottom: 1px solid #444;
-            border-radius: 0 0 15px 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            font-weight: 700;
-        }
-
-        nav {
-            margin: 20px 0;
-        }
-
-        nav a {
-            color: #61dafb;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 700;
-            border-radius: 5px;
-            padding: 10px 15px;
-            transition: background-color 0.3s ease;
-        }
-
-        nav a:hover {
-            background-color: #333;
-        }
-
-        .container {
-            padding: 20px;
-            border-radius: 15px;
-            background-color: #282828;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 20px auto;
-            max-width: 800px;
-        }
-
-        article {
-            background: #ffffff;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            background: #35424a;
-            color: #ffffff;
-            text-align: center;
-            padding: 10px 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
-        footer p {
-            margin: 0;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Personal Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Using Roboto for a modern, clean look -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #1d1f21, #27292b);
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+    
+    header {
+      background: #333;
+      padding: 20px 0;
+      text-align: center;
+      border-bottom: 2px solid #444;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.8em;
+      letter-spacing: 1px;
+    }
+    
+    nav {
+      margin-top: 15px;
+    }
+    
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+    
+    nav ul li {
+      margin: 0 15px;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: #bb86fc;
+      font-weight: 700;
+      transition: color 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+    
+    nav a:hover {
+      color: #fff;
+      background: rgba(187, 134, 252, 0.2);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #2c2f33;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    main h1 {
+      font-size: 2.4em;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    main p {
+      font-size: 1.1em;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    #recent-posts h2 {
+      font-size: 1.8em;
+      border-bottom: 1px solid #444;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .post {
+      background: #fff;
+      color: #333;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    footer {
+      background: #222;
+      color: #bbb;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+    
+    footer .footer-content {
+      margin-bottom: 10px;
+    }
+    
+    footer p {
+      margin: 5px 0;
+    }
+    
+    footer ul.social-media {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+    }
+    
+    footer ul.social-media li {
+      margin: 0 10px;
+    }
+    
+    footer ul.social-media a {
+      color: #bb86fc;
+      text-decoration: none;
+      font-size: 1.2em;
+      transition: color 0.3s ease;
+    }
+    
+    footer ul.social-media a:hover {
+      color: #fff;
+    }
+    
+    footer .footer-links {
+      margin-top: 10px;
+    }
+    
+    footer .footer-links a {
+      color: #bb86fc;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+    
+    footer .footer-links a:hover {
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>My Personal Blog</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
-    <div class="container">
-        <main>
-            <h1>Welcome to My Personal Blog</h1>
-            <p>Here you'll find my thoughts, experiences, and stories.</p>
-            <section id="recent-posts">
-                <h2>Recent Posts</h2>
-                <!-- Blog posts will be dynamically loaded here -->
-            </section>
-        </main>
+  <header>
+    <h1>My Personal Blog</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="container">
+    <main>
+      <h1>Welcome to My Personal Blog</h1>
+      <p>Here you'll find my thoughts, experiences, and stories.</p>
+      <section id="recent-posts">
+        <h2>Recent Posts</h2>
+        <!-- Blog posts will be dynamically loaded here -->
+      </section>
+    </main>
+  </div>
+  
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2023 Your Blog Name. All rights reserved.</p>
+      <ul class="social-media">
+        <li><a href="https://twitter.com/yourprofile" target="_blank">Twitter</a></li>
+        <li><a href="https://facebook.com/yourprofile" target="_blank">Facebook</a></li>
+        <li><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></li>
+      </ul>
     </div>
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2023 Your Blog Name. All rights reserved.</p>
-            <ul class="social-media">
-                <li><a href="https://twitter.com/yourprofile" target="_blank">Twitter</a></li>
-                <li><a href="https://facebook.com/yourprofile" target="_blank">Facebook</a></li>
-                <li><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></li>
-            </ul>
-        </div>
-        <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Smooth scrolling for navigation links
-            const navLinks = document.querySelectorAll('a[href^="#"]');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-
-            // Form validation for contact form
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    if (!name || !email) {
-                        e.preventDefault();
-                        alert('Please fill in all fields.');
-                    }
-                });
-            }
-
-            // Dynamic content loading for recent posts
-            const recentPostsContainer = document.getElementById('recent-posts');
-            if (recentPostsContainer) {
-                fetch('/api/recent-posts')
-                    .then(response => response.json())
-                    .then(posts => {
-                        posts.forEach(post => {
-                            const postElement = document.createElement('div');
-                            postElement.classList.add('post');
-                            postElement.innerHTML = `<h2>${post.title}</h2><p>${post.excerpt}</p>`;
-                            recentPostsContainer.appendChild(postElement);
-                        });
-                    })
-                    .catch(error => console.error('Error loading recent posts:', error));
-            }
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Smooth scrolling for navigation links (if internal links exist)
+      const navLinks = document.querySelectorAll('a[href^="#"]');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }
         });
-    </script>
+      });
+      
+      // Dynamic content loading for recent posts
+      const recentPostsContainer = document.getElementById('recent-posts');
+      if (recentPostsContainer) {
+        fetch('/api/recent-posts')
+          .then(response => response.json())
+          .then(posts => {
+            posts.forEach(post => {
+              const postElement = document.createElement('div');
+              postElement.classList.add('post');
+              postElement.innerHTML = `<h2>${post.title}</h2><p>${post.excerpt}</p>`;
+              recentPostsContainer.appendChild(postElement);
+            });
+          })
+          .catch(error => console.error('Error loading recent posts:', error));
+      }
+    });
+  </script>
 </body>
 </html>
