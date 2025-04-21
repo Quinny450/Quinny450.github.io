@@ -1,418 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Windows 10 USB Installation Guide</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <div class="cursor"></div>
-  <div class="cursor-follower"></div>
-  
-  <div class="noise-overlay"></div>
-  <div class="particle-container"></div>
-  
-  <div class="progress-indicator">
-    <div class="progress-bar"></div>
-  </div>
-  
-  <header class="main-header">
-    <div class="logo-container">
-      <svg class="logo" viewBox="0 0 100 100">
-        <rect x="10" y="10" width="35" height="35" class="logo-part" />
-        <rect x="55" y="10" width="35" height="35" class="logo-part" />
-        <rect x="10" y="55" width="35" height="35" class="logo-part" />
-        <rect x="55" y="55" width="35" height="35" class="logo-part" />
-      </svg>
-      <div class="logo-text">WinUSB</div>
-    </div>
-    
-    <div class="header-content reveal-element">
-      <h1 class="glitch" data-text="Windows 10 USB Installation">Windows 10 USB Installation</h1>
-      <p class="subtitle">Create a bootable Windows 10 USB drive with Rufus</p>
-      
-      <button class="cta-button">
-        <span class="button-text">Start Guide</span>
-        <span class="button-icon"><i class="fas fa-arrow-right"></i></span>
-      </button>
-    </div>
-    
-    <div class="theme-switcher">
-      <input type="checkbox" id="theme-toggle" class="theme-toggle">
-      <label for="theme-toggle" class="theme-toggle-label">
-        <i class="fas fa-sun"></i>
-        <i class="fas fa-moon"></i>
-        <div class="ball"></div>
-      </label>
-    </div>
-  </header>
-  
-  <nav class="main-nav" id="main-nav">
-    <div class="menu-indicator"></div>
-    <ul>
-      <li><a href="#overview" class="nav-link active" data-section="overview"><i class="fas fa-home"></i><span>Overview</span></a></li>
-      <li><a href="#prerequisites" class="nav-link" data-section="prerequisites"><i class="fas fa-clipboard-check"></i><span>Prerequisites</span></a></li>
-      <li><a href="#download" class="nav-link" data-section="download"><i class="fas fa-download"></i><span>Download Win10</span></a></li>
-      <li><a href="#rufus" class="nav-link" data-section="rufus"><i class="fas fa-usb"></i><span>Rufus Setup</span></a></li>
-      <li><a href="#create-usb" class="nav-link" data-section="create-usb"><i class="fas fa-wrench"></i><span>Create USB</span></a></li>
-      <li><a href="#bios" class="nav-link" data-section="bios"><i class="fas fa-microchip"></i><span>BIOS Setup</span></a></li>
-      <li><a href="#install" class="nav-link" data-section="install"><i class="fas fa-desktop"></i><span>Installation</span></a></li>
-      <li><a href="#troubleshoot" class="nav-link" data-section="troubleshoot"><i class="fas fa-bug"></i><span>Troubleshooting</span></a></li>
-      <li><a href="#faq" class="nav-link" data-section="faq"><i class="fas fa-question-circle"></i><span>FAQ</span></a></li>
-    </ul>
-  </nav>
-  
-  <main class="content-wrapper">
-    <section id="overview" class="section active" data-section="overview">
-      <div class="section-inner">
-        <div class="section-header reveal-element">
-          <h2 class="section-title">Overview</h2>
-          <div class="section-line"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Install Windows with USB & Rufus | Ultimate Guide</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="hero">
+      <nav>
+        <div class="logo">
+          <img src="assets/logo.svg" alt="Logo" />
+          <span>WinInstall Pro</span>
         </div>
-        
-        <div class="content-grid">
-          <div class="info-card reveal-element">
-            <div class="card-icon"><i class="fas fa-info-circle"></i></div>
-            <h3>About This Guide</h3>
-            <p>This step-by-step guide will show you how to create a bootable Windows 10 USB drive using Rufus and install Windows 10 on your computer.</p>
-          </div>
-          
-          <div class="info-card reveal-element">
-            <div class="card-icon"><i class="fas fa-clock"></i></div>
-            <h3>Time Required</h3>
-            <p>The entire process typically takes 1-2 hours, including download time, USB creation, and Windows installation.</p>
-          </div>
-          
-          <div class="info-card reveal-element">
-            <div class="card-icon"><i class="fas fa-exclamation-triangle"></i></div>
-            <h3>Important Note</h3>
-            <p>This process will erase all data on your USB drive. Make sure to back up any important files before proceeding.</p>
-          </div>
-        </div>
-        
-        <div class="process-timeline reveal-element">
-          <div class="timeline-step">
-            <div class="step-number">1</div>
-            <div class="step-content">
-              <h4>Gather Prerequisites</h4>
-              <p>USB drive (8GB+), Windows PC, Internet connection</p>
-            </div>
-          </div>
-          
-          <div class="timeline-step">
-            <div class="step-number">2</div>
-            <div class="step-content">
-              <h4>Download Windows 10</h4>
-              <p>Get the official Windows 10 ISO from Microsoft</p>
-            </div>
-          </div>
-          
-          <div class="timeline-step">
-            <div class="step-number">3</div>
-            <div class="step-content">
-              <h4>Setup Rufus</h4>
-              <p>Download and prepare Rufus for creating bootable USB</p>
-            </div>
-          </div>
-          
-          <div class="timeline-step">
-            <div class="step-number">4</div>
-            <div class="step-content">
-              <h4>Create Bootable USB</h4>
-              <p>Use Rufus to create Windows 10 installation media</p>
-            </div>
-          </div>
-          
-          <div class="timeline-step">
-            <div class="step-number">5</div>
-            <div class="step-content">
-              <h4>Configure BIOS</h4>
-              <p>Set computer to boot from USB drive</p>
-            </div>
-          </div>
-          
-          <div class="timeline-step">
-            <div class="step-number">6</div>
-            <div class="step-content">
-              <h4>Install Windows 10</h4>
-              <p>Follow Windows setup to complete installation</p>
-            </div>
-          </div>
-        </div>
+        <ul>
+          <li><a href="#requirements">Requirements</a></li>
+          <li><a href="#steps">Step-by-Step</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="hero-content">
+        <h1>
+          <span class="gradient-text">Install Windows</span>
+          <br />
+          <span>with USB & Rufus</span>
+        </h1>
+        <p>
+          The ultimate, visually stunning guide to creating a bootable USB and
+          installing Windows 11 (or any version) with ease.
+        </p>
+        <a href="#steps" class="cta-btn">Get Started</a>
       </div>
-    </section>
-    
-    <section id="prerequisites" class="section" data-section="prerequisites">
-      <div class="section-inner">
-        <div class="section-header reveal-element">
-          <h2 class="section-title">Prerequisites</h2>
-          <div class="section-line"></div>
-        </div>
-        
-        <div class="requisites-container reveal-element">
-          <div class="requisites-card hardware">
-            <div class="card-header">
-              <h3><i class="fas fa-microchip"></i> Hardware Requirements</h3>
-            </div>
-            <div class="card-content">
-              <ul class="checklist">
-                <li>
-                  <span class="check-icon"><i class="fas fa-check-circle"></i></span>
-                  <span class="check-text">USB flash drive (8GB or larger)</span>
-                </li>
-                <li>
-                  <span class="check-icon"><i class="fas fa-check-circle"></i></span>
-                  <span class="check-text">Computer with Internet connection</span>
-                </li>
-                <li>
-                  <span class="check-icon"><i class="fas fa-check-circle"></i></span>
-                  <span class="check-text">Computer compatible with Windows 10</span>
-                  <span class="info-tooltip" data-tooltip="1 GHz processor, 2 GB RAM, 32 GB storage"><i class="fas fa-info-circle"></i></span>
-                </li>
-                <li>
-                  <span class="check-icon"><i class="fas fa-check-circle"></i></span>
-                  <span class="check-text">Available USB port</span>
-                </li>
-              </ul>
-            </div>
+      <div class="hero-bg"></div>
+    </header>
+
+    <main>
+      <section id="requirements" class="section">
+        <h2>What You’ll Need</h2>
+        <div class="requirements-list">
+          <div class="requirement-card">
+            <img src="assets/usb.svg" alt="USB Drive" />
+            <h3>USB Drive</h3>
+            <p>At least 8GB, empty or backed up.</p>
           </div>
-          
-          <div class="requisites-card software">
-            <div class="card-header">
-              <h3><i class="fas fa-laptop-code"></i> Software Requirements</h3>
-            </div>
-            <div class="card-content">
-              <ul class="checklist">
-                <li>
-                  <span class="check-icon"><i class="fas fa-check-circle"></i></span>
-                  <span class="check-text">Windows 10 ISO file</span>
-                  <a href="#download" class="quick-link"><i class="fas fa-link"></i></a>
-                </li>
-                <li>
-                  <span class="check-icon"><i class="fas fa-check-circle"></i></span>
-                  <span class="check-text">Rufus application</span>
-                  <a href="#rufus" class="quick-link"><i class="fas fa-link"></i></a>
-                </li>
-                <li>
-                  <span class="check-icon"><i class="fas fa-check-circle"></i></span>
-                  <span class="check-text">Working Windows computer</span>
-                </li>
-                <li>
-                  <span class="check-icon"><i class="fas fa-check-circle"></i></span>
-                  <span class="check-text">Administrator privileges</span>
-                </li>
-              </ul>
-            </div>
+          <div class="requirement-card">
+            <img src="assets/windows.svg" alt="Windows ISO" />
+            <h3>Windows ISO</h3>
+            <p>
+              Download from
+              <a
+                href="https://www.microsoft.com/software-download/windows11"
+                target="_blank"
+                >Microsoft</a
+              >.
+            </p>
+          </div>
+          <div class="requirement-card">
+            <img src="assets/rufus.svg" alt="Rufus" />
+            <h3>Rufus</h3>
+            <p>
+              Get the latest version from
+              <a href="https://rufus.ie/" target="_blank">rufus.ie</a>.
+            </p>
           </div>
         </div>
-        
-        <div class="warning-box reveal-element">
-          <div class="warning-icon">
-            <i class="fas fa-exclamation-triangle"></i>
-          </div>
-          <div class="warning-content">
-            <h3>Important Warning</h3>
-            <p>Creating a bootable USB will erase <strong>ALL DATA</strong> on the USB drive. Make sure to back up any important files from your USB drive before proceeding with this guide.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section id="download" class="section" data-section="download">
-      <div class="section-inner">
-        <div class="section-header reveal-element">
-          <h2 class="section-title">Download Windows 10</h2>
-          <div class="section-line"></div>
-        </div>
-        
-        <div class="reveal-element">
-          <div class="download-intro">
-            <p>You need to download the official Windows 10 ISO file from Microsoft's website. This file contains all the necessary installation files for Windows 10.</p>
-          </div>
-        </div>
-        
-        <div class="guided-steps">
-          <div class="step-card reveal-element">
-            <div class="step-number">01</div>
-            <div class="step-details">
-              <h3>Visit the Microsoft Download Page</h3>
-              <p>Go to the official Microsoft Windows 10 download page:</p>
-              <div class="action-link">
-                <a href="https://www.microsoft.com/software-download/windows10" target="_blank" class="tech-link">
-                  <span class="link-text">microsoft.com/software-download/windows10</span>
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
-              </div>
-              
-              <div class="image-showcase">
-                <div class="image-container">
-                  <img src="https://via.placeholder.com/800x450?text=Microsoft+Download+Page" alt="Microsoft Windows 10 Download Page" class="expandable-image">
-                  <div class="image-overlay">
-                    <button class="expand-image-btn"><i class="fas fa-expand"></i></button>
-                  </div>
-                </div>
+      </section>
+
+      <section id="steps" class="section">
+        <h2>Step-by-Step Guide</h2>
+        <ol class="steps-list">
+          <li>
+            <div class="step-card">
+              <span class="step-number">1</span>
+              <div>
+                <h4>Download Windows ISO</h4>
+                <p>
+                  Visit the
+                  <a
+                    href="https://www.microsoft.com/software-download/windows11"
+                    target="_blank"
+                    >official Microsoft page</a
+                  >
+                  and download the Windows ISO file.
+                </p>
               </div>
             </div>
-          </div>
-          
-          <div class="step-card reveal-element">
-            <div class="step-number">02</div>
-            <div class="step-details">
-              <h3>Download the Media Creation Tool</h3>
-              <p>Under "Create Windows 10 installation media," click the "Download tool now" button.</p>
-              
-              <div class="info-box">
-                <div class="info-icon"><i class="fas fa-info-circle"></i></div>
-                <div class="info-content">
-                  <p>The Media Creation Tool helps you download the Windows 10 ISO file and can also create the bootable USB directly. However, we recommend using Rufus for more options and reliability.</p>
-                </div>
+          </li>
+          <li>
+            <div class="step-card">
+              <span class="step-number">2</span>
+              <div>
+                <h4>Download & Open Rufus</h4>
+                <p>
+                  Go to
+                  <a href="https://rufus.ie/" target="_blank">rufus.ie</a>,
+                  download Rufus, and launch it (no installation needed).
+                </p>
               </div>
             </div>
-          </div>
-          
-          <div class="step-card reveal-element">
-            <div class="step-number">03</div>
-            <div class="step-details">
-              <h3>Run the Media Creation Tool</h3>
-              <p>Open the downloaded MediaCreationTool.exe file</p>
-              <div class="tech-specs">
-                <div class="spec-item">
-                  <span class="spec-label">File Size:</span>
-                  <span class="spec-value">~20 MB</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">File Type:</span>
-                  <span class="spec-value">Application (.exe)</span>
-                </div>
+          </li>
+          <li>
+            <div class="step-card">
+              <span class="step-number">3</span>
+              <div>
+                <h4>Insert USB Drive</h4>
+                <p>
+                  Plug your USB drive into your PC. <b>Backup any data</b> on
+                  it, as it will be erased.
+                </p>
               </div>
             </div>
-          </div>
-          
-          <div class="step-card reveal-element">
-            <div class="step-number">04</div>
-            <div class="step-details">
-              <h3>Accept License Terms</h3>
-              <p>Read and accept the Microsoft license terms to continue.</p>
-            </div>
-          </div>
-          
-          <div class="step-card reveal-element">
-            <div class="step-number">05</div>
-            <div class="step-details">
-              <h3>Choose "Create installation media"</h3>
-              <p>Select "Create installation media (USB flash drive, DVD, or ISO file) for another PC" and click Next.</p>
-              
-              <div class="image-showcase">
-                <div class="image-container">
-                  <img src="https://via.placeholder.com/800x450?text=Media+Creation+Tool+Options" alt="Media Creation Tool Options" class="expandable-image">
-                  <div class="image-overlay">
-                    <button class="expand-image-btn"><i class="fas fa-expand"></i></button>
-                  </div>
-                </div>
+          </li>
+          <li>
+            <div class="step-card">
+              <span class="step-number">4</span>
+              <div>
+                <h4>Configure Rufus</h4>
+                <ul>
+                  <li>
+                    <b>Device:</b> Select your USB drive.
+                  </li>
+                  <li>
+                    <b>Boot selection:</b> Choose the Windows ISO.
+                  </li>
+                  <li>
+                    <b>Partition scheme:</b> GPT (for UEFI) or MBR (for BIOS).
+                  </li>
+                  <li>
+                    <b>File system:</b> NTFS or FAT32.
+                  </li>
+                </ul>
               </div>
             </div>
-          </div>
-          
-          <div class="step-card reveal-element">
-            <div class="step-number">06</div>
-            <div class="step-details">
-              <h3>Select Language and Edition</h3>
-              <p>Choose your preferred language, Windows edition, and architecture (64-bit recommended), then click Next.</p>
-            </div>
-          </div>
-          
-          <div class="step-card reveal-element">
-            <div class="step-number">07</div>
-            <div class="step-details">
-              <h3>Choose "ISO file"</h3>
-              <p>Select "ISO file" option and click Next. We'll use this ISO file with Rufus for more control over the USB creation process.</p>
-            </div>
-          </div>
-          
-          <div class="step-card reveal-element">
-            <div class="step-number">08</div>
-            <div class="step-details">
-              <h3>Choose Save Location</h3>
-              <p>Select a location on your computer to save the Windows 10 ISO file and click Save.</p>
-              
-              <div class="important-note">
-                <div class="note-icon"><i class="fas fa-exclamation-circle"></i></div>
-                <div class="note-content">
-                  <p>The Windows 10 ISO file is large (approx. 5GB). Make sure you have enough space on your drive and a stable internet connection.</p>
-                  <div class="download-progress">
-                    <div class="progress-track">
-                      <div class="progress-fill"></div>
-                    </div>
-                    <div class="progress-stats">
-                      <span class="progress-percentage">0%</span>
-                      <span class="progress-size">0 MB / 5120 MB</span>
-                    </div>
-                  </div>
-                </div>
+          </li>
+          <li>
+            <div class="step-card">
+              <span class="step-number">5</span>
+              <div>
+                <h4>Create Bootable USB</h4>
+                <p>
+                  Click <b>Start</b> in Rufus. Wait for the process to finish.
+                  Your USB is now ready!
+                </p>
               </div>
             </div>
-          </div>
-          
-          <div class="step-card reveal-element">
-            <div class="step-number">09</div>
-            <div class="step-details">
-              <h3>Wait for Download to Complete</h3>
-              <p>The download will start automatically and may take 10-30 minutes depending on your internet speed.</p>
-              
-              <div class="success-message">
-                <i class="fas fa-check-circle"></i>
-                <p>Once the download is complete, you'll have the Windows 10 ISO file ready to use with Rufus.</p>
+          </li>
+          <li>
+            <div class="step-card">
+              <span class="step-number">6</span>
+              <div>
+                <h4>Boot & Install Windows</h4>
+                <p>
+                  Restart your PC, boot from the USB (change boot order in BIOS
+                  if needed), and follow the Windows installation wizard.
+                </p>
               </div>
             </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="faq" class="section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h4>Can I use this for Windows 10 or 8?</h4>
+            <p>
+              Absolutely! The process is identical for Windows 10, 8, or even
+              7—just use the correct ISO.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h4>What if my PC doesn’t boot from USB?</h4>
+            <p>
+              Enter your BIOS/UEFI (usually by pressing <b>F2</b>, <b>F12</b>,
+              <b>DEL</b>, or <b>ESC</b> at startup) and set the USB drive as the
+              first boot device.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h4>Is Rufus safe?</h4>
+            <p>
+              Yes, Rufus is a trusted, open-source tool used by millions
+              worldwide.
+            </p>
           </div>
         </div>
-      </div>
-    </section>
-    
-    <!-- Other sections would follow the same pattern -->
-    <!-- Included just the first few sections for brevity -->
-    
-    <div class="modal" id="image-modal">
-      <div class="modal-content">
-        <span class="close-modal"><i class="fas fa-times"></i></span>
-        <img id="modal-image" src="" alt="Expanded image">
-      </div>
-    </div>
-  </main>
-  
-  <footer class="main-footer">
-    <div class="footer-content">
-      <div class="footer-logo">
-        <svg class="logo" viewBox="0 0 100 100">
-          <rect x="10" y="10" width="35" height="35" class="logo-part" />
-          <rect x="55" y="10" width="35" height="35" class="logo-part" />
-          <rect x="10" y="55" width="35" height="35" class="logo-part" />
-          <rect x="55" y="55" width="35" height="35" class="logo-part" />
-        </svg>
-        <div class="logo-text">WinUSB</div>
-      </div>
-      
-      <div class="footer-links">
-        <a href="#" class="footer-link"><i class="fas fa-print"></i> Print Guide</a>
-        <a href="#" class="footer-link"><i class="fas fa-download"></i> Download PDF</a>
-        <a href="#top" class="footer-link"><i class="fas fa-arrow-up"></i> Back to Top</a>
-      </div>
-      
-      <div class="footer-credits">
-        <p>Windows 10 USB Installation Guide &copy; 2025</p>
-        <p class="created-by">Created with <i class="fas fa-heart"></i></p>
-      </div>
-    </div>
-  </footer>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script src="script.js"></script>
-</body>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2025 WinInstall Pro. Made with 💙 for students and techies.
+      </p>
+    </footer>
+
+    <!-- GSAP for advanced animations -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="animations.js"></script>
+  </body>
 </html>
