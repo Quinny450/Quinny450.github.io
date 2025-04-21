@@ -9,24 +9,19 @@
     <title>Install Windows with USB & Rufus | Ultimate Guide</title>
     <link rel="stylesheet" href="styles.css" />
     <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
-    <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <style>
+      /* Insert the CSS from the previous answer here, or link to styles.css */
+      /* ... (use the styles.css from above) ... */
+    </style>
   </head>
   <body>
     <header class="hero">
       <nav>
         <div class="logo">
-          <img src="assets/logo.svg" alt="Logo" />
+          <img src="https://img.icons8.com/color/48/windows-11.png" alt="Logo" />
           <span>WinInstall Pro</span>
         </div>
         <ul>
@@ -55,12 +50,12 @@
         <h2>What You’ll Need</h2>
         <div class="requirements-list">
           <div class="requirement-card">
-            <img src="assets/usb.svg" alt="USB Drive" />
+            <img src="https://img.icons8.com/fluency/48/usb.png" alt="USB Drive" />
             <h3>USB Drive</h3>
             <p>At least 8GB, empty or backed up.</p>
           </div>
           <div class="requirement-card">
-            <img src="assets/windows.svg" alt="Windows ISO" />
+            <img src="https://img.icons8.com/color/48/windows-11.png" alt="Windows ISO" />
             <h3>Windows ISO</h3>
             <p>
               Download from
@@ -72,7 +67,7 @@
             </p>
           </div>
           <div class="requirement-card">
-            <img src="assets/rufus.svg" alt="Rufus" />
+            <img src="https://img.icons8.com/color/48/rufus.png" alt="Rufus" />
             <h3>Rufus</h3>
             <p>
               Get the latest version from
@@ -89,15 +84,17 @@
             <div class="step-card">
               <span class="step-number">1</span>
               <div>
-                <h4>Download Windows ISO</h4>
+                <h4>Download the Windows ISO</h4>
                 <p>
-                  Visit the
+                  Go to the
                   <a
                     href="https://www.microsoft.com/software-download/windows11"
                     target="_blank"
-                    >official Microsoft page</a
-                  >
-                  and download the Windows ISO file.
+                    >Microsoft Windows Download page</a
+                  >. Select your Windows version and click "Download". Save the ISO file to your computer.
+                </p>
+                <p>
+                  <b>Tip:</b> For Windows 10 or 8, use their respective download pages.
                 </p>
               </div>
             </div>
@@ -106,11 +103,9 @@
             <div class="step-card">
               <span class="step-number">2</span>
               <div>
-                <h4>Download & Open Rufus</h4>
+                <h4>Download and Open Rufus</h4>
                 <p>
-                  Go to
-                  <a href="https://rufus.ie/" target="_blank">rufus.ie</a>,
-                  download Rufus, and launch it (no installation needed).
+                  Visit <a href="https://rufus.ie/" target="_blank">rufus.ie</a> and download the latest version of Rufus. It’s a portable app—just double-click to open, no installation required.
                 </p>
               </div>
             </div>
@@ -119,10 +114,9 @@
             <div class="step-card">
               <span class="step-number">3</span>
               <div>
-                <h4>Insert USB Drive</h4>
+                <h4>Insert Your USB Drive</h4>
                 <p>
-                  Plug your USB drive into your PC. <b>Backup any data</b> on
-                  it, as it will be erased.
+                  Plug your USB drive into your computer. <b>Warning:</b> All data on the USB will be erased, so back up anything important first!
                 </p>
               </div>
             </div>
@@ -134,18 +128,24 @@
                 <h4>Configure Rufus</h4>
                 <ul>
                   <li>
-                    <b>Device:</b> Select your USB drive.
+                    <b>Device:</b> Select your USB drive from the dropdown.
                   </li>
                   <li>
-                    <b>Boot selection:</b> Choose the Windows ISO.
+                    <b>Boot selection:</b> Click "SELECT" and choose your Windows ISO file.
                   </li>
                   <li>
-                    <b>Partition scheme:</b> GPT (for UEFI) or MBR (for BIOS).
+                    <b>Partition scheme:</b> Choose <b>GPT</b> for modern UEFI systems, or <b>MBR</b> for older BIOS systems.
                   </li>
                   <li>
-                    <b>File system:</b> NTFS or FAT32.
+                    <b>File system:</b> Use <b>NTFS</b> (for files over 4GB) or <b>FAT32</b> (for maximum compatibility).
+                  </li>
+                  <li>
+                    <b>Volume label:</b> You can name your USB (e.g., "WIN11USB").
                   </li>
                 </ul>
+                <p>
+                  <b>Advanced:</b> Leave other settings at default unless you know what you’re doing.
+                </p>
               </div>
             </div>
           </li>
@@ -153,10 +153,12 @@
             <div class="step-card">
               <span class="step-number">5</span>
               <div>
-                <h4>Create Bootable USB</h4>
+                <h4>Create the Bootable USB</h4>
                 <p>
-                  Click <b>Start</b> in Rufus. Wait for the process to finish.
-                  Your USB is now ready!
+                  Click <b>Start</b>. Rufus will warn you that all data will be destroyed—confirm to continue. Wait for the progress bar to reach 100%. This may take several minutes.
+                </p>
+                <p>
+                  When done, you’ll see "READY" in Rufus. Safely eject your USB drive.
                 </p>
               </div>
             </div>
@@ -165,10 +167,37 @@
             <div class="step-card">
               <span class="step-number">6</span>
               <div>
-                <h4>Boot & Install Windows</h4>
+                <h4>Boot from the USB & Install Windows</h4>
+                <ul>
+                  <li>
+                    Insert the USB into the target PC.
+                  </li>
+                  <li>
+                    Restart the PC and enter the boot menu (usually <b>F12</b>, <b>F2</b>, <b>DEL</b>, or <b>ESC</b> at startup).
+                  </li>
+                  <li>
+                    Select your USB drive as the boot device.
+                  </li>
+                  <li>
+                    The Windows installer will start. Follow the on-screen instructions to install Windows.
+                  </li>
+                </ul>
                 <p>
-                  Restart your PC, boot from the USB (change boot order in BIOS
-                  if needed), and follow the Windows installation wizard.
+                  <b>Tip:</b> If you don’t see the USB, check your BIOS/UEFI settings and enable booting from USB.
+                </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="step-card">
+              <span class="step-number">7</span>
+              <div>
+                <h4>Complete Windows Setup</h4>
+                <p>
+                  After installation, your PC will restart. Remove the USB drive when prompted. Complete the Windows setup (region, keyboard, account, etc.).
+                </p>
+                <p>
+                  <b>Congratulations!</b> You’ve installed Windows using a USB and Rufus.
                 </p>
               </div>
             </div>
@@ -182,23 +211,31 @@
           <div class="faq-item">
             <h4>Can I use this for Windows 10 or 8?</h4>
             <p>
-              Absolutely! The process is identical for Windows 10, 8, or even
-              7—just use the correct ISO.
+              Absolutely! The process is identical for Windows 10, 8, or even 7—just use the correct ISO.
             </p>
           </div>
           <div class="faq-item">
             <h4>What if my PC doesn’t boot from USB?</h4>
             <p>
-              Enter your BIOS/UEFI (usually by pressing <b>F2</b>, <b>F12</b>,
-              <b>DEL</b>, or <b>ESC</b> at startup) and set the USB drive as the
-              first boot device.
+              Enter your BIOS/UEFI (usually by pressing <b>F2</b>, <b>F12</b>, <b>DEL</b>, or <b>ESC</b> at startup) and set the USB drive as the first boot device.
             </p>
           </div>
           <div class="faq-item">
             <h4>Is Rufus safe?</h4>
             <p>
-              Yes, Rufus is a trusted, open-source tool used by millions
-              worldwide.
+              Yes, Rufus is a trusted, open-source tool used by millions worldwide.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h4>What partition scheme should I use?</h4>
+            <p>
+              Use <b>GPT</b> for modern UEFI systems (most PCs from 2012 onward). Use <b>MBR</b> for older BIOS systems.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h4>Can I use a Mac or Linux to create the USB?</h4>
+            <p>
+              This guide is for Windows. For Mac or Linux, use <b>Balena Etcher</b> or <b>UNetbootin</b>.
             </p>
           </div>
         </div>
@@ -214,10 +251,89 @@
     <!-- GSAP for advanced animations -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-      integrity="sha512-..."
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="animations.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      // Animate hero text and background
+      window.addEventListener('DOMContentLoaded', () => {
+        gsap.from('.hero-content h1', {
+          y: 60,
+          opacity: 0,
+          duration: 1.2,
+          ease: 'power4.out',
+        });
+        gsap.from('.hero-content p', {
+          y: 40,
+          opacity: 0,
+          delay: 0.3,
+          duration: 1,
+          ease: 'power3.out',
+        });
+        gsap.from('.cta-btn', {
+          scale: 0.8,
+          opacity: 0,
+          delay: 0.6,
+          duration: 0.8,
+          ease: 'back.out(1.7)',
+        });
+
+        // Animate requirements cards
+        gsap.from('.requirement-card', {
+          y: 40,
+          opacity: 0,
+          stagger: 0.15,
+          delay: 0.8,
+          duration: 1,
+          ease: 'power3.out',
+        });
+
+        // Animate steps on scroll
+        gsap.utils.toArray('.step-card').forEach((card, i) => {
+          gsap.from(card, {
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 80%',
+            },
+            x: i % 2 === 0 ? -80 : 80,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out',
+          });
+        });
+
+        // Animate FAQ items
+        gsap.utils.toArray('.faq-item').forEach((item, i) => {
+          gsap.from(item, {
+            scrollTrigger: {
+              trigger: item,
+              start: 'top 90%',
+            },
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            delay: i * 0.1,
+            ease: 'power2.out',
+          });
+        });
+
+        // Parallax hero background
+        document.addEventListener('mousemove', (e) => {
+          const x = (e.clientX / window.innerWidth - 0.5) * 40;
+          const y = (e.clientY / window.innerHeight - 0.5) * 40;
+          gsap.to('.hero-bg', {
+            x: x,
+            y: y,
+            duration: 1.2,
+            ease: 'power3.out',
+          });
+        });
+      });
+    </script>
   </body>
 </html>
