@@ -1,0 +1,14 @@
+<svg width="48" height="64" viewBox="0 0 48 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Windows logo (top) -->
+  <rect x="4" y="4" width="16" height="16" fill="#4F8CFF"/>
+  <rect x="28" y="4" width="16" height="16" fill="#2563EB"/>
+  <rect x="4" y="28" width="16" height="16" fill="#4F8CFF"/>
+  <rect x="28" y="28" width="16" height="16" fill="#2563EB"/>
+  <!-- USB body (bottom, centered) -->
+  <rect x="14" y="50" width="20" height="8" rx="2" fill="#64748B" stroke="#334155" stroke-width="1"/>
+  <!-- USB connector -->
+  <rect x="18" y="46" width="12" height="6" rx="1" fill="#CBD5E1" stroke="#334155" stroke-width="1"/>
+  <!-- USB contacts -->
+  <rect x="20" y="48" width="2" height="2" fill="#334155"/>
+  <rect x="26" y="48" width="2" height="2" fill="#334155"/>
+</svg>
