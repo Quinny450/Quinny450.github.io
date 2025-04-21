@@ -5,30 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>WinInstall Pro Blog</title>
   <link rel="stylesheet" href="styles/main.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
-  <div id="header-include"></div>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <img src="assets/windows.svg" alt="Windows Logo" />
+        WinInstall Pro
+      </a>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
   <main>
-    <section class="section">
-      <h1 class="gradient-text">WinInstall Pro Blog</h1>
-      <p class="subtitle">Visually stunning guides, tips, and news for Windows enthusiasts.</p>
-      <div class="blog-list">
-        <!-- Example blog card -->
-        <a href="posts/2025-04-21-windows-11-bootable-usb.html" class="blog-card">
-          <img src="assets/images/windows-usb.jpg" alt="Windows USB" />
-          <div>
-            <h2>How to Create a Windows 11 Bootable USB with Rufus</h2>
-            <p class="blog-meta">April 21, 2025 &bull; Guide</p>
-            <p>Step-by-step, animated guide to making a bootable USB for Windows 11 using Rufus.</p>
-          </div>
-        </a>
-        <!-- Add more blog cards as you add posts -->
-      </div>
+    <section class="hero">
+      <h1>WinInstall Pro Blog</h1>
+      <p class="subtitle">Simple, beautiful guides and tips for Windows users.</p>
+    </section>
+    <section class="blog-list">
+      <a href="posts/first-post.html" class="blog-card">
+        <img src="assets/windows-usb.svg" alt="Windows USB" />
+        <div>
+          <h2>How to Create a Windows 11 Bootable USB</h2>
+          <p class="meta">April 2025 &bull; Guide</p>
+          <p>Step-by-step guide to making a bootable USB for Windows 11 using Rufus.</p>
+        </div>
+      </a>
+      <!-- Add more blog cards as you add posts -->
     </section>
   </main>
-  <div id="footer-include"></div>
-  <script src="scripts/animations.js"></script>
-  <script src="scripts/includes.js"></script>
+  <footer>
+    <p>&copy; 2025 WinInstall Pro</p>
+  </footer>
 </body>
 </html>

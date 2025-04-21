@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How to Create a Windows 11 Bootable USB</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="../index.html" class="logo">
+        <img src="../assets/windows.svg" alt="Windows Logo" />
+        WinInstall Pro
+      </a>
+      <ul>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article class="blog-post">
+      <h1>How to Create a Windows 11 Bootable USB</h1>
+      <p class="meta">April 2025 &bull; Guide</p>
+      <img src="../assets/windows-usb.svg" alt="Windows USB" class="post-hero"/>
+      <ol>
+        <li>
+          <b>Download the Windows ISO:</b>
+          <br>
+          Go to <a href="https://www.microsoft.com/software-download/windows11" target="_blank">Microsoft's website</a> and download the Windows 11 ISO.
+        </li>
+        <li>
+          <b>Download Rufus:</b>
+          <br>
+          Get Rufus from <a href="https://rufus.ie/" target="_blank">rufus.ie</a> and open it.
+        </li>
+        <li>
+          <b>Insert your USB drive:</b>
+          <br>
+          Use at least an 8GB USB. Back up any important files first.
+        </li>
+        <li>
+          <b>Configure Rufus:</b>
+          <ul>
+            <li>Select your USB device.</li>
+            <li>Choose the Windows ISO you downloaded.</li>
+            <li>Partition scheme: GPT (for most modern PCs).</li>
+            <li>File system: NTFS or FAT32.</li>
+          </ul>
+        </li>
+        <li>
+          <b>Create the bootable USB:</b>
+          <br>
+          Click <b>Start</b> and wait for Rufus to finish.
+        </li>
+        <li>
+          <b>Boot from USB and install Windows:</b>
+          <br>
+          Restart your PC, boot from the USB, and follow the Windows setup instructions.
+        </li>
+      </ol>
+    </article>
+  </main>
+  <footer>
+    <p>&copy; 2025 WinInstall Pro</p>
+  </footer>
+</body>
+</html>
