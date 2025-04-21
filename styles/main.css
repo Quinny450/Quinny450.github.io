@@ -1,12 +1,12 @@
 :root {
     --primary: #4f8cff;
     --secondary: #2563eb;
-    --bg: #f8fafc;
-    --text: #1e293b;
+    --bg: #f9fafb;
+    --text: #22223b;
     --muted: #64748b;
     --card: #fff;
-    --radius: 1rem;
-    --shadow: 0 4px 24px 0 rgba(80, 80, 255, 0.08);
+    --radius: 0.75rem;
+    --shadow: 0 2px 12px 0 rgba(80, 80, 255, 0.06);
   }
   
   *,
@@ -16,7 +16,7 @@
   }
   
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     background: var(--bg);
     color: var(--text);
     margin: 0;
@@ -27,16 +27,15 @@
   header {
     background: #fff;
     box-shadow: var(--shadow);
-    padding: 0.5rem 0;
   }
   
   nav {
-    max-width: 900px;
+    max-width: 700px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 1.5rem;
+    padding: 0.5rem 1rem;
   }
   
   .logo {
@@ -44,19 +43,19 @@
     align-items: center;
     gap: 0.5rem;
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--primary);
     text-decoration: none;
   }
   
   .logo img {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
   }
   
   nav ul {
     display: flex;
-    gap: 1.5rem;
+    gap: 1.2rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -74,32 +73,32 @@
   }
   
   main {
-    max-width: 900px;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 2rem 1.5rem 3rem 1.5rem;
+    padding: 2rem 1rem 3rem 1rem;
   }
   
   .hero {
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
   
   .hero h1 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
     color: var(--primary);
   }
   
   .subtitle {
     color: var(--muted);
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   .blog-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1.5rem;
     justify-content: center;
   }
   
@@ -107,84 +106,79 @@
     background: var(--card);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    width: 320px;
+    width: 260px;
     text-decoration: none;
     color: var(--text);
     display: flex;
-    flex-direction: column;
     align-items: center;
-    transition: transform 0.15s, box-shadow 0.15s;
-    padding: 1.5rem 1rem;
+    gap: 1rem;
+    padding: 1rem 1rem;
+    transition: box-shadow 0.15s, transform 0.15s;
   }
   
   .blog-card:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 8px 32px 0 rgba(80, 80, 255, 0.12);
+    box-shadow: 0 4px 24px 0 rgba(80, 80, 255, 0.10);
+    transform: translateY(-2px) scale(1.01);
   }
   
   .blog-card img {
-    width: 64px;
-    height: 64px;
-    margin-bottom: 1rem;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
   }
   
   .blog-card h2 {
-    font-size: 1.2rem;
-    margin: 0.5rem 0 0.2rem 0;
+    font-size: 1.05rem;
+    margin: 0 0 0.2rem 0;
     color: var(--primary);
+    font-weight: 600;
   }
   
   .blog-card .meta {
     color: var(--muted);
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .blog-card p {
-    color: var(--muted);
-    font-size: 1rem;
+    font-size: 0.92rem;
   }
   
   .page {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem 1.2rem;
+  }
+  
+  .page h1 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .blog-post {
     max-width: 600px;
     margin: 0 auto;
     background: var(--card);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    padding: 2rem 1.5rem;
-  }
-  
-  .page h1 {
-    color: var(--primary);
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .blog-post {
-    max-width: 700px;
-    margin: 0 auto;
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.2rem;
   }
   
   .blog-post h1 {
     color: var(--primary);
-    font-size: 2rem;
+    font-size: 1.4rem;
     margin-bottom: 0.5rem;
   }
   
   .blog-post .meta {
     color: var(--muted);
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
+    font-size: 0.92rem;
+    margin-bottom: 1.2rem;
   }
   
   .blog-post .post-hero {
-    width: 64px;
-    height: 64px;
-    margin-bottom: 1.5rem;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1.2rem;
     display: block;
   }
   
@@ -196,11 +190,11 @@
     text-align: center;
     padding: 2rem 0 1rem 0;
     color: var(--muted);
-    font-size: 1rem;
+    font-size: 0.95rem;
     background: transparent;
   }
   
-  @media (max-width: 700px) {
+  @media (max-width: 600px) {
     main {
       padding: 1rem 0.5rem 2rem 0.5rem;
     }

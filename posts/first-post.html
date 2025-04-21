@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>How to Create a Windows 11 Bootable USB</title>
+  <title>Create a Windows 11 Bootable USB</title>
   <link rel="stylesheet" href="../styles/main.css" />
 </head>
 <body>
@@ -21,43 +21,37 @@
   </header>
   <main>
     <article class="blog-post">
-      <h1>How to Create a Windows 11 Bootable USB</h1>
+      <h1>Create a Windows 11 Bootable USB</h1>
       <p class="meta">April 2025 &bull; Guide</p>
       <img src="../assets/windows-usb.svg" alt="Windows USB" class="post-hero"/>
       <ol>
         <li>
-          <b>Download the Windows ISO:</b>
+          <b>Download Windows 11 ISO:</b>
           <br>
-          Go to <a href="https://www.microsoft.com/software-download/windows11" target="_blank">Microsoft's website</a> and download the Windows 11 ISO.
+          <a href="https://www.microsoft.com/software-download/windows11" target="_blank">Microsoft's website</a>
         </li>
         <li>
           <b>Download Rufus:</b>
           <br>
-          Get Rufus from <a href="https://rufus.ie/" target="_blank">rufus.ie</a> and open it.
+          <a href="https://rufus.ie/" target="_blank">rufus.ie</a>
         </li>
         <li>
-          <b>Insert your USB drive:</b>
-          <br>
-          Use at least an 8GB USB. Back up any important files first.
+          <b>Insert USB (8GB+), open Rufus.</b>
         </li>
         <li>
-          <b>Configure Rufus:</b>
+          <b>Configure:</b>
           <ul>
-            <li>Select your USB device.</li>
-            <li>Choose the Windows ISO you downloaded.</li>
-            <li>Partition scheme: GPT (for most modern PCs).</li>
-            <li>File system: NTFS or FAT32.</li>
+            <li>Select USB device</li>
+            <li>Choose ISO</li>
+            <li>Partition: GPT (UEFI)</li>
+            <li>File system: NTFS or FAT32</li>
           </ul>
         </li>
         <li>
-          <b>Create the bootable USB:</b>
-          <br>
-          Click <b>Start</b> and wait for Rufus to finish.
+          <b>Click Start. Wait for completion.</b>
         </li>
         <li>
-          <b>Boot from USB and install Windows:</b>
-          <br>
-          Restart your PC, boot from the USB, and follow the Windows setup instructions.
+          <b>Boot from USB, install Windows.</b>
         </li>
       </ol>
     </article>
