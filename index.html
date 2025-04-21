@@ -1,253 +1,421 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Test Site</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Modern font for a clean look -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary-bg: #121212;
-      --secondary-bg: #1e1e1e;
-      --accent-color: #bb86fc;
-      --text-color: #e0e0e0;
-      --card-bg: #2a2a2a;
-      --header-bg: #1f1f1f;
-      --footer-bg: #181818;
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--primary-bg);
-      color: var(--text-color);
-      line-height: 1.6;
-      padding-bottom: 80px;
-    }
-    
-    header {
-      background: var(--header-bg);
-      padding: 20px;
-      text-align: center;
-      border-bottom: 2px solid #333;
-      border-radius: 0 0 20px 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      margin-bottom: 20px;
-    }
-    
-    header h1 {
-      font-size: 2.5rem;
-      letter-spacing: 2px;
-    }
-    
-    nav {
-      margin-top: 15px;
-    }
-    
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-    }
-    
-    nav ul li {
-      margin: 0 10px;
-    }
-    
-    nav a {
-      text-decoration: none;
-      color: var(--accent-color);
-      padding: 8px 16px;
-      border-radius: 30px;
-      transition: background 0.3s, color 0.3s;
-    }
-    
-    nav a:hover {
-      background: var(--accent-color);
-      color: var(--text-color);
-    }
-    
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    
-    main {
-      background: var(--secondary-bg);
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    
-    main h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 15px;
-    }
-    
-    main p {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    
-    #recent-posts h2 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      text-align: center;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #444;
-    }
-    
-    .post {
-      background: var(--card-bg);
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
-    }
-    
-    .post:hover {
-      transform: translateY(-5px);
-    }
-    
-    .post h2 {
-      color: var(--accent-color);
-      margin-bottom: 10px;
-    }
-    
-    footer {
-      background: var(--footer-bg);
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      text-align: center;
-      padding: 15px 0;
-      border-top: 2px solid #333;
-    }
-    
-    footer .footer-content {
-      margin-bottom: 10px;
-    }
-    
-    footer p {
-      margin: 5px 0;
-      font-size: 0.9rem;
-    }
-    
-    footer ul.social-media {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      padding: 0;
-      margin: 10px 0;
-    }
-    
-    footer ul.social-media li {
-      margin: 0 10px;
-    }
-    
-    footer ul.social-media a {
-      color: var(--accent-color);
-      text-decoration: none;
-      font-size: 1.2rem;
-      transition: color 0.3s;
-    }
-    
-    footer ul.social-media a:hover {
-      color: var(--text-color);
-    }
-    
-    footer .footer-links a {
-      color: var(--accent-color);
-      text-decoration: none;
-      margin: 0 10px;
-      transition: color 0.3s;
-    }
-    
-    footer .footer-links a:hover {
-      color: var(--text-color);
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows 10 USB Installation Guide</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
   <header>
-    <h1>My Personal Blog</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <h1>Windows 10 USB Installation Guide</h1>
+      <p>Complete guide to creating a bootable Windows 10 USB drive using Rufus</p>
+      <button id="theme-toggle" aria-label="Toggle dark/light mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
   </header>
-  
-  <div class="container">
-    <main>
-      <h1>Welcome to My Website</h1>
-      <p>Here you'll find some stuff later</p>
-      <section id="recent-posts">
-        <h2>Recent Posts</h2>
-        <!-- Blog posts will be dynamically loaded here -->
-      </section>
-    </main>
-  </div>
-  
-  <footer>
-    <div class="footer-content">
-      <p>&copy; 2025 SigmaBlog. All rights reserved.</p>
-      <ul class="social-media">
-        <li><a href="https://x.com/UnexpectedRoute" target="_blank">Twitter</a></li>
+
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#download-windows">Download Windows</a></li>
+        <li><a href="#rufus-setup">Rufus Setup</a></li>
+        <li><a href="#create-usb">Create USB</a></li>
+        <li><a href="#bios-config">BIOS Config</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
     </div>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+  </nav>
+
+  <main class="container">
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <section id="prerequisites" class="section">
+      <h2>1. Prerequisites</h2>
+      <div class="card">
+        <h3>Hardware Requirements</h3>
+        <ul>
+          <li>USB drive (8GB or larger)</li>
+          <li>Computer with internet connection</li>
+          <li>Computer capable of running Windows 10</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Software Requirements</h3>
+        <ul>
+          <li>Windows 10 ISO file</li>
+          <li>Rufus application</li>
+          <li>Working computer to create the bootable USB</li>
+        </ul>
+      </div>
+      <div class="alert warning">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p><strong>Warning:</strong> Creating a bootable USB will erase all data on the drive. Make sure to back up any important files.</p>
+      </div>
+    </section>
+
+    <section id="download-windows" class="section">
+      <h2>2. Downloading Windows 10</h2>
+      <div class="step-container">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Visit the Microsoft Download Page</h3>
+            <p>Go to <a href="https://www.microsoft.com/software-download/windows10" target="_blank">https://www.microsoft.com/software-download/windows10</a></p>
+            <div class="screenshot">
+              <img src="https://via.placeholder.com/800x450?text=Microsoft+Download+Page" alt="Microsoft Download Page" class="expandable-img">
+              <span class="zoom-icon"><i class="fas fa-search-plus"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Download the Windows 10 ISO</h3>
+            <p>Scroll down and click "Download Now" under the "Create Windows 10 installation media" section.</p>
+            <div class="alert info">
+              <i class="fas fa-info-circle"></i>
+              <p>Windows 10 ISO is approximately 5GB. The download may take 10-30 minutes depending on your internet speed.</p>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Verify Your Download</h3>
+            <p>Ensure your ISO file downloaded completely and isn't corrupted by checking the file size.</p>
+            <p>Expected file size: approximately 5GB</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rufus-setup" class="section">
+      <h2>3. Rufus Setup Guide</h2>
+      <div class="step-container">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Download Rufus</h3>
+            <p>Download Rufus from the official website: <a href="https://rufus.ie" target="_blank">https://rufus.ie</a></p>
+            <div class="code-block">
+              <code>You can choose the portable version which doesn't require installation</code>
+              <button class="copy-btn" data-text="You can choose the portable version which doesn't require installation">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Run Rufus</h3>
+            <p>Double-click the Rufus executable file to run it. You may see a UAC (User Account Control) prompt - click Yes.</p>
+            <div class="screenshot">
+              <img src="https://via.placeholder.com/800x450?text=Rufus+Interface" alt="Rufus Interface" class="expandable-img">
+              <span class="zoom-icon"><i class="fas fa-search-plus"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="create-usb" class="section">
+      <h2>4. Creating Bootable USB</h2>
+      <div class="step-container">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Insert Your USB Drive</h3>
+            <p>Insert your USB drive (8GB or larger) into your computer.</p>
+            <div class="alert warning">
+              <i class="fas fa-exclamation-triangle"></i>
+              <p><strong>Warning:</strong> All data on the USB drive will be erased during this process!</p>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Configure Rufus</h3>
+            <p>Set the following options in Rufus:</p>
+            <ul>
+              <li>Device: Select your USB drive</li>
+              <li>Boot selection: Select "Disk or ISO image" and click SELECT</li>
+              <li>Choose the Windows 10 ISO file you downloaded</li>
+              <li>Partition scheme: GPT</li>
+              <li>Target system: UEFI (non CSM)</li>
+              <li>File system: NTFS</li>
+              <li>Cluster size: Default</li>
+            </ul>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Start the Process</h3>
+            <p>Click START to begin creating the bootable USB.</p>
+            <p>You'll see warning messages about data being destroyed. Click OK to continue.</p>
+            <div class="alert info">
+              <i class="fas fa-info-circle"></i>
+              <p>The process typically takes 10-15 minutes to complete.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bios-config" class="section">
+      <h2>5. BIOS Configuration</h2>
+      <div class="card">
+        <h3>Accessing BIOS/UEFI</h3>
+        <p>Common keys to access BIOS/UEFI during startup:</p>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Manufacturer</th>
+                <th>Key</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Dell</td>
+                <td>F2 or F12</td>
+              </tr>
+              <tr>
+                <td>HP</td>
+                <td>F10 or Esc</td>
+              </tr>
+              <tr>
+                <td>Lenovo</td>
+                <td>F1 or F2</td>
+              </tr>
+              <tr>
+                <td>ASUS</td>
+                <td>F2 or Del</td>
+              </tr>
+              <tr>
+                <td>Acer</td>
+                <td>F2 or Del</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="step-container">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Change Boot Order</h3>
+            <p>Navigate to the Boot settings in your BIOS/UEFI.</p>
+            <p>Change the boot order to prioritize USB boot over hard drive boot.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Save Changes</h3>
+            <p>Save changes and exit BIOS/UEFI (usually F10).</p>
+            <p>Your computer will restart and boot from the USB drive.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="installation" class="section">
+      <h2>6. Windows Installation Process</h2>
+      <div class="step-container">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Windows Setup</h3>
+            <p>The Windows Setup screen will appear. Select your language, time, and keyboard preferences, then click "Next".</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Install Windows</h3>
+            <p>Click "Install Now" to begin the installation process.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Product Key</h3>
+            <p>Enter your product key or select "I don't have a product key" to continue.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Select Edition</h3>
+            <p>Choose the Windows 10 edition you want to install.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>Accept License Terms</h3>
+            <p>Read and accept the license terms.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">6</div>
+          <div class="step-content">
+            <h3>Installation Type</h3>
+            <p>Choose "Custom: Install Windows only" for a clean installation.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">7</div>
+          <div class="step-content">
+            <h3>Partition Selection</h3>
+            <p>Select the partition where you want to install Windows.</p>
+            <div class="alert warning">
+              <i class="fas fa-exclamation-triangle"></i>
+              <p><strong>Warning:</strong> Formatting a partition will delete all data on it!</p>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">8</div>
+          <div class="step-content">
+            <h3>Complete Installation</h3>
+            <p>Follow the remaining prompts to complete the Windows 10 installation.</p>
+            <p>Your computer will restart several times during this process.</p>
+            <div class="alert info">
+              <i class="fas fa-info-circle"></i>
+              <p>The installation process typically takes 15-40 minutes depending on your hardware.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="troubleshooting" class="section">
+      <h2>7. Troubleshooting</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-header">
+            USB Drive Not Detected
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="accordion-content">
+            <p>If your USB drive is not detected during boot:</p>
+            <ul>
+              <li>Check if the USB is properly inserted</li>
+              <li>Try a different USB port</li>
+              <li>Ensure USB boot is enabled in BIOS</li>
+              <li>Try creating the bootable USB again</li>
+            </ul>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            "Windows cannot be installed to this disk" Error
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="accordion-content">
+            <p>This error often occurs when:</p>
+            <ul>
+              <li>The disk is not properly formatted</li>
+              <li>The disk is using an unsupported partition style</li>
+              <li>The selected disk has MBR partition style but you're trying to install in UEFI mode</li>
+            </ul>
+            <p>Solution: Format the disk using the Windows installer's built-in tools.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            Installation Freezes or Crashes
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="accordion-content">
+            <p>If the installation freezes or crashes:</p>
+            <ul>
+              <li>Check for hardware compatibility issues</li>
+              <li>Disconnect unnecessary peripherals</li>
+              <li>Ensure your computer meets minimum system requirements</li>
+              <li>Try re-creating the USB installation media</li>
+              <li>Check if your RAM is functioning properly</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <h2>8. Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Do I need a product key to install Windows 10?</h3>
+          </div>
+          <div class="faq-answer">
+            <p>No, you can install Windows 10 without a product key. However, you will have limited personalization options and a watermark will appear on your desktop until you activate Windows.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Can I use Rufus on macOS?</h3>
+          </div>
+          <div class="faq-answer">
+            <p>No, Rufus is only available for Windows. For macOS, you can use alternative tools like BalenaEtcher or the Boot Camp Assistant.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How long does the entire process take?</h3>
+          </div>
+          <div class="faq-answer">
+            <p>The entire process typically takes 1-2 hours, including:</p>
+            <ul>
+              <li>Downloading Windows 10 ISO: 10-30 minutes</li>
+              <li>Creating bootable USB: 10-15 minutes</li>
+              <li>Installing Windows: 15-40 minutes</li>
+              <li>Initial setup: 10-20 minutes</li>
+            </ul>
+            <p>Times may vary depending on your internet speed and computer hardware.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Will this delete my files?</h3>
+          </div>
+          <div class="faq-answer">
+            <p>Creating a bootable USB will erase all data on the USB drive. When installing Windows, choosing "Custom: Install Windows only" and formatting/deleting partitions will erase all data on those partitions. Always back up important data before proceeding.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Windows 10 USB Installation Guide &copy; 2025</p>
+      <div class="footer-links">
+        <a href="#" id="print-guide"><i class="fas fa-print"></i> Print Guide</a>
+        <a href="#top"><i class="fas fa-arrow-up"></i> Back to Top</a>
+      </div>
     </div>
   </footer>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Smooth scrolling for navigation links (if internal links exist)
-      const navLinks = document.querySelectorAll('a[href^="#"]');
-      navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-          }
-        });
-      });
-      
-      // Dynamic content loading for recent posts
-      const recentPostsContainer = document.getElementById('recent-posts');
-      if (recentPostsContainer) {
-        fetch('/api/recent-posts')
-          .then(response => response.json())
-          .then(posts => {
-            posts.forEach(post => {
-              const postElement = document.createElement('div');
-              postElement.classList.add('post');
-              postElement.innerHTML = `<h2>${post.title}</h2><p>${post.excerpt}</p>`;
-              recentPostsContainer.appendChild(postElement);
-            });
-          })
-          .catch(error => console.error('Error loading recent posts:', error));
-      }
-    });
-  </script>
+
+  <!-- Modal for expanded images -->
+  <div id="image-modal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="expanded-image">
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

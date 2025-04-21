@@ -1,41 +1,115 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-        });
+document.addEventListener("DOMContentLoaded", function () {
+    // Theme toggle
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeIcon = themeToggle.querySelector("i");
+  
+    themeToggle.addEventListener("click", function () {
+      document.body.classList.toggle("dark-theme");
+      themeIcon.classList.toggle("fa-moon");
+      themeIcon.classList.toggle("fa-sun");
     });
-
-    // Form validation for contact form
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            if (!name || !email) {
-                e.preventDefault();
-                alert('Please fill in all fields.');
-            }
+  
+    // Progress bar
+    const progressBar = document.getElementById("progress-bar");
+    const sections = document.querySelectorAll(".section");
+    const totalHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
+  
+    window.addEventListener("scroll", function () {
+      const scrollPosition = window.scrollY;
+      const progress = (scrollPosition / totalHeight) * 100;
+      progressBar.style.width = progress + "%";
+    });
+  
+    // Expandable images
+    const expandableImages = document.querySelectorAll(".expandable-img");
+    const imageModal = document.getElementById("image-modal");
+    const expandedImage = document.getElementById("expanded-image");
+    const closeModal = document.querySelector(".close-modal");
+  
+    expandableImages.forEach((img) => {
+      img.addEventListener("click", function () {
+        imageModal.style.display = "flex";
+        expandedImage.src = this.src;
+      });
+    });
+  
+    closeModal.addEventListener("click", function () {
+      imageModal.style.display = "none";
+    });
+  
+    // Close modal when clicking outside
+    window.addEventListener("click", function (event) {
+      if (event.target === imageModal) {
+        imageModal.style.display = "none";
+      }
+    });
+  
+    // Accordion
+    const accordionItems = document.querySelectorAll(".accordion-item");
+  
+    accordionItems.forEach((item) => {
+      const header = item.querySelector(".accordion-header");
+      
+      header.addEventListener("click", function () {
+        accordionItems.forEach((otherItem) => {
+          if (otherItem !== item) {
+            otherItem.classList.remove("active");
+          }
         });
-    }
-
-    // Dynamic content loading for recent posts
-    const recentPostsContainer = document.getElementById('recent-posts');
-    if (recentPostsContainer) {
-        fetch('/api/recent-posts')
-            .then(response => response.json())
-            .then(posts => {
-                posts.forEach(post => {
-                    const postElement = document.createElement('div');
-                    postElement.classList.add('post');
-                    postElement.innerHTML = `<h2>${post.title}</h2><p>${post.excerpt}</p>`;
-                    recentPostsContainer.appendChild(postElement);
-                });
-            })
-            .catch(error => console.error('Error loading recent posts:', error));
-    }
-});
+        
+        item.classList.toggle("active");
+      });
+    });
+  
+    // Copy to clipboard
+    const copyButtons = document.querySelectorAll(".copy-btn");
+  
+    copyButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        const textToCopy = this.getAttribute("data-text");
+        navigator.clipboard.writeText(textToCopy).then(
+          function () {
+            // Change button icon to check for 2 seconds
+            const icon = button.querySelector("i");
+            icon.classList.remove("fa-copy");
+            icon.classList.add("fa-check");
+            
+            setTimeout(function () {
+              icon.classList.remove("fa-check");
+              icon.classList.add("fa-copy");
+            }, 2000);
+          },
+          function (err) {
+            console.error("Could not copy text: ", err);
+          }
+        );
+      });
+    });
+  
+    // Print functionality
+    const printGuide = document.getElementById("print-guide");
+    
+    printGuide.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.print();
+    });
+  
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll("nav a");
+    
+    navLinks.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute("href");
+        const targetSection = document.querySelector(targetId);
+        
+        window.scrollTo({
+          top: targetSection.offsetTop - 80,
+          behavior: "smooth"
+        });
+      });
+    });
+  });
+  
